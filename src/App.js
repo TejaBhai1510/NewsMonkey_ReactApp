@@ -1,9 +1,9 @@
-import './App.css';
+import React, { Component } from 'react'
 import Navbar from './components/Navbar';
 import News from './components/News';
+import './App.css';
 // API Key: 827985a64a544af4a33a05ef2f78c0c4
 
-import React, { Component } from 'react'
 
 export default class App extends Component {
   render() {
