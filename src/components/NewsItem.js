@@ -2,11 +2,10 @@ import React, { Component } from 'react'
 
 export class NewsItem extends Component {
   render() {
-    let { title, description, imgUrl, newsUrl, author, date, source } = this.props;
+    let { title, description, imgUrl, newsUrl, author, date } = this.props;
     return (
       <div className='my-3'>
         <div className="card">
-          <span class="position-absolute top-0 translate-middle badge rounded-pill bg-danger" style={{ left: '85%', zIndex: '1' }}>{source}</span>
           <img src={!imgUrl ? "https://thumbs.dreamstime.com/b/news-woodn-dice-depicting-letters-bundle-small-newspapers-leaning-left-dice-34802664.jpg" : imgUrl} className="card-img-top" alt="..." />
           <div className="card-body">
             <h5 className="card-title">{title}</h5>
