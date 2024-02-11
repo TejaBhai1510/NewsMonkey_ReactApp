@@ -21,10 +21,9 @@ export class News extends Component {
 
   constructor(props) {
     super(props);
-    console.log('Hello I am a constructor from News component');
     this.state = {
       articles: [],
-      loading: false,
+      loading: true,
       totalResults: 0,
       page: 1
     }
@@ -32,15 +31,19 @@ export class News extends Component {
   }
 
   async updateNews() {
+    this.props.setProgress(10);
     const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=827985a64a544af4a33a05ef2f78c0c4&page=${this.state.page}&pageSize=${this.props.pageSize}`;
     this.setState({ loading: true });
     let data = await fetch(url);
+    this.props.setProgress(35);
     let parsedData = await data.json();
+    this.props.setProgress(65);
     this.setState({
       articles: parsedData.articles,
       totalResults: parsedData.totalResults,
-      loading: false
+      loading: false,
     })
+    this.props.setProgress(100);
   }
   async componentDidMount() {
     this.updateNews();
